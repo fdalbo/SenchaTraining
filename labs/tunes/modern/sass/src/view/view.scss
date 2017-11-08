@@ -1,0 +1,14 @@
+.video{
+      overflow:hidden;
+      white-space:nowrap;
+      height: 60px;
+      img {
+        width: 92px;
+        float: left;
+      }
+      p {
+        position: absolute;
+        left: 110px;
+        font-size: 1.1em;
+      }
+}
