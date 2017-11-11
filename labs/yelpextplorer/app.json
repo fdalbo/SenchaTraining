@@ -14,7 +14,8 @@
      *      ]
      */
     "requires": [
-        "font-awesome"
+        "font-awesome",
+        "ux"
     ],
 
     /**
@@ -29,8 +30,8 @@
      * application resides (the same folder in which this file is located).
      */
     "classpath": [
-        "app",
-        "${toolkit.name}/src"
+    	"app/shared/src",
+   		"app/${build.id}/src"
     ],
 
     /**
@@ -41,8 +42,8 @@
      * in the "override" property is also included.
      */
     "overrides": [
-        "overrides",
-        "${toolkit.name}/overrides"
+  	  	"app/shared/overrides",
+   	 	"app/${build.id}/overrides"
     ],
 
     /**
@@ -257,17 +258,17 @@
      *          "update": ""      // OPTIONAL
      *      }
      */
-    "css": [
-        {
-            // this entry uses an ant variable that is the calculated
-            // value of the generated output css file for the app,
-            // defined in .sencha/app/defaults.properties
-            "path": "${build.out.css.path}",
-            "bundle": true,
-            "exclude": ["fashion"]
-        }
-    ],
-
+	"css": [
+		{
+		    "path": "${build.out.css.path}",
+		    "bundle": true,
+		    "exclude": ["fashion"]
+		},
+		{
+		    "path": "resources/stylesheet.css",
+		    "bootstrap": false
+		}
+	],
     /**
      * This option is used to configure the dynamic loader. At present these options
      * are supported.
@@ -512,9 +513,11 @@
      */
 
     "builds": {
-        "classic": {
+        "desktop": {
             "toolkit": "classic",
+
             "theme": "theme-triton",
+
             "sass": {
                 "generated": {
                     "var": "classic/sass/save.scss",
@@ -523,9 +526,11 @@
             }
         },
 
-        "modern": {
+        "phone": {
             "toolkit": "modern",
-            "theme": "theme-material",
+
+            "theme": "theme-triton",
+
             "sass": {
                 "generated": {
                     "var": "modern/sass/save.scss",
